@@ -1,0 +1,5 @@
+digraph {
+	p -> {libd1 libd2};
+	libd1 -> libbase[label="version1"];
+	libd2 -> libbase[label="version2"];
+}

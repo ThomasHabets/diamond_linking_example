@@ -4,6 +4,9 @@ LDFLAGS=-Wl,-rpath=.
 
 all: libd1.so libd2.so p
 
+%.png: %.dot
+	dot -Tpng -o $@ $^
+
 # Base library version 1
 libbase.so.1.0: base1.o
 	$(LD) -shared \
@@ -46,4 +49,4 @@ p: p.o
 	$(CC) $(LDFLAGS) -o p p.o -L. -Wl,-rpath=. -ld1 -ld2
 
 clean:
-	rm -f *.o *.so *.[012] *~ p
+	rm -f *.o *.so *.[012] *~ p *.png
