@@ -30,6 +30,6 @@ void
 d1()
 {
   printf("d1()\n");
-  d1_print("d1");
+  d2_print("d1");
 }
 

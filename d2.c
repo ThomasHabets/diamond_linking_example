@@ -30,7 +30,7 @@ void
 d2()
 {
   printf("d2()\n");
-  d2_print("d2");
+  d1_print("d2");
 }
 
 
