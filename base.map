@@ -1,8 +1,0 @@
-BASE1 {
-      global: base_print;
-      local: *;
-};
-BASE2 {
-      global: base_print;
-      local: *;
-};

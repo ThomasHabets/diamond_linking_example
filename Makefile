@@ -1,4 +1,4 @@
-CFLAGS=-fPIC
+CFLAGS=-fPIC -Wall -pedantic
 LD=gcc
 LDFLAGS=-Wl,-rpath=.
 
@@ -6,13 +6,13 @@ all: libd1.so libd2.so p
 
 libbase.so.1.0: base1.o
 	$(LD) -shared \
-		-Wl,--version-script=base.map \
+		-Wl,--default-symver \
 		-Wl,-soname,libbase.so.1 \
 		-o $@ $<
 
 libbase.so.2.0: base2.o
 	$(LD) -shared \
-		-Wl,--version-script=base.map \
+		-Wl,--default-symver \
 		-Wl,-soname,libbase.so.2 \
 		-o $@ $<
 
