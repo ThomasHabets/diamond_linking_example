@@ -1,6 +1,23 @@
 #include<stdio.h>
 
 void base_print(const char*);
+void d2_print(const char*);
+
+static
+void
+__attribute__ ((constructor))
+d1_init(void)
+{
+  printf("d1> init\n");
+}
+
+static
+void
+__attribute__ ((destructor))
+d1_fini(void)
+{
+  printf("d1> fini\n");
+}
 
 void
 d1_print(const char* s)
