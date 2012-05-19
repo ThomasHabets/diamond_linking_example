@@ -36,12 +36,13 @@ libd1.so: d1.o libbase.so.1.0
 # libd2.so:
 # * Uses libbase. Compiled against libbase.so.2
 # * provides unversioned symbols
-libd2.so: d2.o libbase.so.2.0
+libd2.so: d2.o libbase.so.2.0 libd1.so
 	ldconfig -N -f ld.so.conf
 	ln -fs libbase.so.2 libbase.so  # library to link with
 	$(LD) $(LDFLAGS) -L. \
+		-Wl,--default-symver \
 		-Wl,-soname,libd2.so \
-		-shared -o $@ $< -lbase
+		-shared -o $@ $< -lbase -ld1
 	rm libbase.so
 
 # p: Test program that depends on both libd1 and libd2.

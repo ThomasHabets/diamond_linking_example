@@ -1,6 +1,5 @@
 void d1();
 void d2();
-
 int
 main()
 {
